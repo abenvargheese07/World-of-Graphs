@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GRAPH_THEORY // BDA</title>
+    <meta name="description"
+        content="An interactive academic companion for Graph Theory — modules, visual lab, and e-book." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+
+    <div class="grain"></div>
+
+    <!-- ============ HEADER ============ -->
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="#top" class="brand">
+                <span class="brand__dot" aria-hidden="true"></span>
+                GRAPH_THEORY <span class="brand__slash">//</span> BDA
+            </a>
+
+            <nav class="nav__links" aria-label="Primary">
+                <a href="#modules">Modules</a>
+                <a href="#lab">Interactive Lab</a>
+                <a href="#ebook">E-Book</a>
+            </nav>
+
+            <a href="#ebook" class="btn btn--cta">
+                <span class="btn__dot" aria-hidden="true"></span>
+                Read E-Book
+            </a>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <div class="hero__grid" aria-hidden="true"></div>
+            <p class="eyebrow">/// BIG DATA ANALYTICS &nbsp;—&nbsp; ASSIGNMENT MODULE</p>
+
+            <h1 class="hero__title">
+                GRAPH<br />
+                THEORY<span class="hero__cursor">_</span>
+            </h1>
+
+            <p class="hero__subtitle">
+                A structural map of nodes, edges, and the algorithms that move between them —
+                built as a working reference, not a static submission.
+            </p>
+
+            <div class="hero__actions">
+                <a href="#modules" class="btn btn--primary">Explore Topics</a>
+                <a href="#lab" class="btn btn--ghost">Open Visualizer <span class="btn__arrow">→</span></a>
+            </div>
+
+            <div class="hero__meta">
+                <span>NODES: 06 MODULES</span>
+                <span class="hero__meta-divider">|</span>
+                <span>STATUS: <span class="text-accent">LIVE</span></span>
+            </div>
+        </section>
+
+        <!-- ============ TOPIC GRID ============ -->
+        <section class="topics" id="modules">
+            <div class="section-head">
+                <p class="eyebrow">/// 01 — CURRICULUM</p>
+                <h2>Modules</h2>
+            </div>
+
+            <div class="topic-grid">
+
+                <article class="card">
+                    <span class="card__tick" aria-hidden="true"></span>
+                    <span class="tag">[MOD_01]</span>
+                    <h3>Intro &amp; Types</h3>
+                    <p>Directed, undirected, weighted, and simple graphs — the vocabulary everything else is built from.
+                    </p>
+                    <a href="#" class="card__link">Explore <span>→</span></a>
+                </article>
+
+                <article class="card">
+                    <span class="card__tick" aria-hidden="true"></span>
+                    <span class="tag">[MOD_02]</span>
+                    <h3>Eulerian &amp; Hamiltonian</h3>
+                    <p>Paths and circuits that touch every edge or every vertex exactly once — and when they exist at
+                        all.</p>
+                    <a href="#" class="card__link">Explore <span>→</span></a>
+                </article>
+
+                <article class="card">
+                    <span class="card__tick" aria-hidden="true"></span>
+                    <span class="tag">[MOD_03]</span>
+                    <h3>Trees &amp; Spanning Trees</h3>
+                    <p>Minimal connected structures, and the algorithms that carve them out of larger graphs.</p>
+                    <a href="#" class="card__link">Explore <span>→</span></a>
+                </article>
+
+                <article class="card">
+                    <span class="card__tick" aria-hidden="true"></span>
+                    <span class="tag">[MOD_04]</span>
+                    <h3>Shortest Path Algorithms</h3>
+                    <p>Dijkstra, Bellman-Ford, and the trade-offs between speed, weight, and negative edges.</p>
+                    <a href="#" class="card__link">Explore <span>→</span></a>
+                </article>
+
+                <article class="card">
+                    <span class="card__tick" aria-hidden="true"></span>
+                    <span class="tag">[MOD_05]</span>
+                    <h3>Graph Colorings</h3>
+                    <p>Assigning labels so no two adjacent nodes match — scheduling, maps, and register allocation.</p>
+                    <a href="#" class="card__link">Explore <span>→</span></a>
+                </article>
+
+                <article class="card">
+                    <span class="card__tick" aria-hidden="true"></span>
+                    <span class="tag">[MOD_06]</span>
+                    <h3>Planar Graphs</h3>
+                    <p>Graphs that can be drawn without crossings — and the theorems that decide if that's possible.</p>
+                    <a href="#" class="card__link">Explore <span>→</span></a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============ E-BOOK BANNER ============ -->
+        <section class="ebook" id="ebook">
+            <div class="ebook__inner">
+                <div class="ebook__text">
+                    <p class="eyebrow">/// 02 — REFERENCE</p>
+                    <h2>The Full E-Book</h2>
+                    <p class="ebook__desc">
+                        Every module above, expanded — worked proofs, annotated diagrams, and the
+                        derivations that don't fit on a slide. Embedded, searchable, and always in sync
+                        with the modules.
+                    </p>
+                </div>
+                <div class="ebook__action">
+                    <span class="ebook__pages">248 PAGES · v1.0</span>
+                    <a href="#" class="btn btn--primary">Quick Preview</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <span class="footer__brand">GRAPH_THEORY <span class="text-accent">//</span> BDA</span>
+            <span class="footer__version">v1.0.0-release</span>
+            <a href="#" class="footer__repo">git.repo ↗</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
