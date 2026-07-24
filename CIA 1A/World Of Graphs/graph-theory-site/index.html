@@ -14,7 +14,9 @@
         href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet" />
 
+    <!-- Linked Design Tokens and Component Styles -->
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
 </head>
 
 <body>
@@ -86,7 +88,7 @@
                     <h3>Intro &amp; Types</h3>
                     <p>Directed, undirected, weighted, and simple graphs — the vocabulary everything else is built from.
                     </p>
-                    <a href="#" class="card__link">Explore <span>→</span></a>
+                    <a href="#ebook" class="card__link">Explore <span>→</span></a>
                 </article>
 
                 <article class="card">
@@ -95,7 +97,7 @@
                     <h3>Eulerian &amp; Hamiltonian</h3>
                     <p>Paths and circuits that touch every edge or every vertex exactly once — and when they exist at
                         all.</p>
-                    <a href="#" class="card__link">Explore <span>→</span></a>
+                    <a href="#ebook" class="card__link">Explore <span>→</span></a>
                 </article>
 
                 <article class="card">
@@ -103,7 +105,7 @@
                     <span class="tag">[MOD_03]</span>
                     <h3>Trees &amp; Spanning Trees</h3>
                     <p>Minimal connected structures, and the algorithms that carve them out of larger graphs.</p>
-                    <a href="#" class="card__link">Explore <span>→</span></a>
+                    <a href="#ebook" class="card__link">Explore <span>→</span></a>
                 </article>
 
                 <article class="card">
@@ -111,7 +113,7 @@
                     <span class="tag">[MOD_04]</span>
                     <h3>Shortest Path Algorithms</h3>
                     <p>Dijkstra, Bellman-Ford, and the trade-offs between speed, weight, and negative edges.</p>
-                    <a href="#" class="card__link">Explore <span>→</span></a>
+                    <a href="#ebook" class="card__link">Explore <span>→</span></a>
                 </article>
 
                 <article class="card">
@@ -119,7 +121,7 @@
                     <span class="tag">[MOD_05]</span>
                     <h3>Graph Colorings</h3>
                     <p>Assigning labels so no two adjacent nodes match — scheduling, maps, and register allocation.</p>
-                    <a href="#" class="card__link">Explore <span>→</span></a>
+                    <a href="#ebook" class="card__link">Explore <span>→</span></a>
                 </article>
 
                 <article class="card">
@@ -127,12 +129,13 @@
                     <span class="tag">[MOD_06]</span>
                     <h3>Planar Graphs</h3>
                     <p>Graphs that can be drawn without crossings — and the theorems that decide if that's possible.</p>
-                    <a href="#" class="card__link">Explore <span>→</span></a>
+                    <a href="#ebook" class="card__link">Explore <span>→</span></a>
                 </article>
 
             </div>
         </section>
 
+        <!-- ============ INTERACTIVE LAB ============ -->
         <section class="view" id="lab">
             <div class="section-head">
                 <p class="eyebrow">/// 03 — SANDBOX</p>
@@ -161,7 +164,7 @@
             </div>
         </section>
 
-        <!-- ============ E-BOOK BANNER ============ -->
+        <!-- ============ E-BOOK BANNER & READER ============ -->
         <section class="view" id="ebook">
             <div class="ebook__inner">
                 <div class="ebook__text">
@@ -175,10 +178,11 @@
                 </div>
                 <div class="ebook__action">
                     <span class="ebook__pages">248 PAGES · v1.0</span>
-                    <a href="#" class="btn btn--primary">Quick Preview</a>
+                    <a href="#ebook-reader" class="btn btn--primary">Quick Preview</a>
                 </div>
             </div>
-            <!-- ============ E-BOOK READER ============ -->
+
+            <!-- E-Book Reader Engine -->
             <div class="reader" id="ebook-reader">
 
                 <!-- Toolbar: chapter nav, download, fullscreen -->
@@ -195,7 +199,7 @@
 
                     <div class="reader__toolbar-group">
                         <a class="reader__btn reader__btn--text" id="reader-download"
-                            href="assets/graph-theory-ebook.pdf" download="Graph-Theory-BDA.pdf">
+                            href="assets/ebook/World of Graphs.pdf" download="World_of_Graphs.pdf">
                             Download <span aria-hidden="true">↓</span>
                         </a>
                         <button class="reader__btn reader__btn--text" id="reader-fullscreen">
@@ -235,14 +239,14 @@
 
                     <div class="reader__viewer-wrap" id="reader-viewer-wrap">
                         <iframe id="pdf-viewer" class="reader__viewer"
-                            src="assets/graph-theory-ebook.pdf#page=1&toolbar=0&navpanes=0"
+                            src="assets/ebook/World of Graphs.pdf#page=1&toolbar=0&navpanes=0"
                             title="Graph Theory E-Book viewer" loading="lazy">
                         </iframe>
 
                         <!-- Shown via JS if the iframe can't render the PDF inline -->
                         <div class="reader__fallback" id="reader-fallback" hidden>
                             <p>Your browser can't display the e-book inline.</p>
-                            <a href="assets/graph-theory-ebook.pdf" download="Graph-Theory-BDA.pdf"
+                            <a href="assets/ebook/World of Graphs.pdf" download="World_of_Graphs.pdf"
                                 class="btn btn--primary">
                                 Download the PDF instead
                             </a>
@@ -264,6 +268,10 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/graph-sim.js"></script>
+    <script src="js/ebook-reader.js"></script>
 </body>
 
 </html>
