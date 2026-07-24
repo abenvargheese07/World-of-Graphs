@@ -138,7 +138,27 @@
                 <p class="eyebrow">/// 03 — SANDBOX</p>
                 <h2>Interactive Lab</h2>
             </div>
-            <!-- visualizer canvas goes here -->
+            <div class="lab">
+                <div class="lab__toolbar">
+                    <div class="lab__toolbar-group">
+                        <button class="reader__btn" id="lab-run-bfs">Run BFS</button>
+                        <button class="reader__btn" id="lab-run-dijkstra">Run Dijkstra</button>
+                        <button class="reader__btn" id="lab-run-mst">Find MST (Kruskal)</button>
+                    </div>
+                    <div class="lab__toolbar-group">
+                        <button class="reader__btn reader__btn--text" id="lab-clear">Clear Graph</button>
+                    </div>
+                </div>
+
+                <div class="lab__canvas-wrap" id="lab-canvas-wrap">
+                    <canvas id="lab-canvas"></canvas>
+                </div>
+
+                <p class="lab__status" id="lab-status">
+                    Click empty space to add a node · Drag a node to move it · Shift-click two nodes to connect them ·
+                    Double-click a node to set it as start
+                </p>
+            </div>
         </section>
 
         <!-- ============ E-BOOK BANNER ============ -->
