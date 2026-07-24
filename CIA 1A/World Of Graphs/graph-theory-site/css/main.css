@@ -4,14 +4,14 @@
    ============================================ */
 
 :root {
-    --bg: #0A0A0C;
+    --bg: #0a0a0c;
     --card-bg: #121215;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-border-hover: rgba(255, 255, 255, 0.2);
     --text-primary: #E6E6E6;
-    --text-muted: #888888;
-    --accent: #FF2E2E;
-    --accent-glow: rgba(255, 46, 46, 0.35);
+    --text-muted: #92a0c1;
+    --accent: #2f2085;
+    --accent-glow: rgba(47, 32, 133, 0.35);
 
     --font-mono: 'Space Mono', 'SFMono-Regular', monospace;
     --font-body: 'Inter', -apple-system, sans-serif;
