@@ -158,6 +158,79 @@
                     <a href="#" class="btn btn--primary">Quick Preview</a>
                 </div>
             </div>
+            <!-- ============ E-BOOK READER ============ -->
+            <div class="reader" id="ebook-reader">
+
+                <!-- Toolbar: chapter nav, download, fullscreen -->
+                <div class="reader__toolbar">
+                    <div class="reader__toolbar-group">
+                        <button class="reader__btn" id="reader-prev" aria-label="Previous chapter" disabled>
+                            <span aria-hidden="true">←</span>
+                        </button>
+                        <span class="reader__chapter-label" id="reader-chapter-label">[01] Introduction</span>
+                        <button class="reader__btn" id="reader-next" aria-label="Next chapter">
+                            <span aria-hidden="true">→</span>
+                        </button>
+                    </div>
+
+                    <div class="reader__toolbar-group">
+                        <a class="reader__btn reader__btn--text" id="reader-download"
+                            href="assets/graph-theory-ebook.pdf" download="Graph-Theory-BDA.pdf">
+                            Download <span aria-hidden="true">↓</span>
+                        </a>
+                        <button class="reader__btn reader__btn--text" id="reader-fullscreen">
+                            Fullscreen <span aria-hidden="true">⤢</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Body: TOC side panel + viewer -->
+                <div class="reader__body">
+
+                    <aside class="reader__toc" aria-label="Table of contents">
+                        <p class="eyebrow">/// Contents</p>
+                        <ul class="toc-list" id="toc-list">
+                            <li>
+                                <button class="toc-item is-active" data-index="0" data-page="1">
+                                    <span class="toc-item__tag">[01]</span> Introduction
+                                </button>
+                            </li>
+                            <li>
+                                <button class="toc-item" data-index="1" data-page="18">
+                                    <span class="toc-item__tag">[02]</span> Graph Traversals
+                                </button>
+                            </li>
+                            <li>
+                                <button class="toc-item" data-index="2" data-page="52">
+                                    <span class="toc-item__tag">[03]</span> Planar Graphs
+                                </button>
+                            </li>
+                            <li>
+                                <button class="toc-item" data-index="3" data-page="89">
+                                    <span class="toc-item__tag">[04]</span> Optimization
+                                </button>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <div class="reader__viewer-wrap" id="reader-viewer-wrap">
+                        <iframe id="pdf-viewer" class="reader__viewer"
+                            src="assets/graph-theory-ebook.pdf#page=1&toolbar=0&navpanes=0"
+                            title="Graph Theory E-Book viewer" loading="lazy">
+                        </iframe>
+
+                        <!-- Shown via JS if the iframe can't render the PDF inline -->
+                        <div class="reader__fallback" id="reader-fallback" hidden>
+                            <p>Your browser can't display the e-book inline.</p>
+                            <a href="assets/graph-theory-ebook.pdf" download="Graph-Theory-BDA.pdf"
+                                class="btn btn--primary">
+                                Download the PDF instead
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </section>
 
     </main>
