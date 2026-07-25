@@ -1,0 +1,52 @@
+{
+  "hosting": [
+    {
+      "site": "abengraphtheory",
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(js|css|html)",
+          "headers": [
+            { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
+          ]
+        },
+        {
+          "source": "**/*.pdf",
+          "headers": [
+            { "key": "Cache-Control", "value": "no-cache, must-revalidate" },
+            { "key": "Content-Type", "value": "application/pdf" }
+          ]
+        }
+      ]
+    },
+    {
+      "site": "world-of-graphs",
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(js|css|html)",
+          "headers": [
+            { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
+          ]
+        },
+        {
+          "source": "**/*.pdf",
+          "headers": [
+            { "key": "Cache-Control", "value": "no-cache, must-revalidate" },
+            { "key": "Content-Type", "value": "application/pdf" }
+          ]
+        }
+      ]
+    }
+  ]
+}

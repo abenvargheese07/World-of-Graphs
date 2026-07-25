@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="World of Graphs — an interactive visual reference for graph theory covering taxonomy, subgraphs, structural properties, degree sequences, and more.">
+    <title>World of Graphs</title>
+
+    <!-- Fonts: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="components.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-glow"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="logo">World <span class="accent">of</span> Graphs</div>
+        <nav class="nav-links">
+            <a href="#topics">Topics</a>
+            <a href="#ebook">Ebook</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <canvas id="heroCanvas"></canvas>
+            <div class="hero-content">
+                <div class="hero-tag">BIG DATA ANALYTICS — GRAPH THEORY</div>
+                <h1>World of Graphs</h1>
+                <p>An interactive visual reference covering graph taxonomy, subgraphs, structural properties, and degree sequences — all rendered on native canvas.</p>
+                <div class="cta-group">
+                    <a href="#topics" class="btn btn-primary">Explore Topics</a>
+                    <a href="#ebook" class="btn btn-secondary">Read Ebook →</a>
+                </div>
+                <div class="status-bar">
+                    <span>8 TOPICS</span>
+                    <span><span class="live-dot"></span>INTERACTIVE</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TOPICS ============ -->
+        <section id="topics" class="section-wrapper">
+            <div class="section-tag">01 — TOPICS</div>
+            <div class="section-title">Graph Fundamentals & Types</div>
+            <div class="cards-grid">
+
+                <div class="card" onclick="selectTopic('simple')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_01]</div>
+                    <h3>Graphs & Simple Graphs</h3>
+                    <p>A graph $G = (V, E)$ with no self-loops or parallel edges. The simplest foundation of graph theory — every vertex connects to others through unique, undirected edges.</p>
+                </div>
+
+                <div class="card" onclick="selectTopic('empty_null')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_02]</div>
+                    <h3>Empty, Null & Trivial Graphs</h3>
+                    <p>Explore the boundary cases: empty graphs ($E = \emptyset$), null graphs ($V = \emptyset$), and trivial graphs consisting of a single isolated vertex with no connections.</p>
+                </div>
+
+                <div class="card" onclick="selectTopic('connected_complete')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_03]</div>
+                    <h3>Connected & Complete Graphs</h3>
+                    <p>In connected graphs, every vertex is reachable from any other. Complete graphs ($K_n$) take this further — every pair of distinct vertices has a direct edge between them.</p>
+                </div>
+
+                <div class="card" onclick="selectTopic('subgraph')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_04]</div>
+                    <h3>Subgraphs & Spanning Subgraphs</h3>
+                    <p>A subgraph $H \subseteq G$ uses a subset of vertices and edges. Spanning subgraphs preserve all vertices of $G$ but may omit some edges.</p>
+                </div>
+
+                <div class="card" onclick="selectTopic('complement_bipartite')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_05]</div>
+                    <h3>Complement & Bipartite Graphs</h3>
+                    <p>The complement $\bar{G}$ inverts all edge connections. Bipartite graphs partition vertices into two disjoint sets $V_1$ and $V_2$, with edges only between the two sets.</p>
+                </div>
+
+                <div class="card" onclick="selectTopic('size_order_classes')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_06]</div>
+                    <h3>Order, Size & Graph Classes</h3>
+                    <p>Order $|V|$ counts vertices, size $|E|$ counts edges. Classify graphs into paths ($P_n$), cycles ($C_n$), stars ($S_n$), and other structural families.</p>
+                </div>
+
+                <div class="card" onclick="selectTopic('regular_adjacency')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_07]</div>
+                    <h3>Regularity & Adjacencies</h3>
+                    <p>In $k$-regular graphs, every vertex has exactly degree $k$. Adjacent vertices share an edge; incident edges share a common vertex endpoint.</p>
+                </div>
+
+                <div class="card" onclick="selectTopic('degree_sequence')" tabindex="0" role="button">
+                    <div class="card-id">[TOPIC_08]</div>
+                    <h3>Degree Sequences</h3>
+                    <p>The non-increasing sequence of vertex degrees uniquely characterises a graph. The Handshaking Lemma: $\sum \deg(v) = 2|E|$ — the sum of degrees is always even.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============ INTERACTIVE VISUALIZER ============ -->
+        <section id="lab" class="section-wrapper">
+            <div class="section-tag">02 — VISUALIZER</div>
+            <div class="lab-header">
+                <h2 id="current-topic-title">Simple Graph</h2>
+                <div class="controls">
+                    <button class="btn btn-secondary btn-sm" id="btn-toggle-anim">Pause</button>
+                    <button class="btn btn-secondary btn-sm" id="btn-reset">Reset</button>
+                </div>
+            </div>
+
+            <div class="node-controls" id="node-controls">
+                <label>
+                    Nodes
+                    <input type="range" id="node-slider" min="3" max="12" value="5">
+                    <span class="node-count-display" id="node-count-display">5</span>
+                </label>
+                <div class="control-separator"></div>
+                <span class="help-hint">Drag nodes to reposition · Hover for degree info</span>
+            </div>
+
+            <div class="visualizer-container">
+                <canvas id="graphCanvas"></canvas>
+                <div class="canvas-overlay" id="topic-description">
+                    Select a topic above to load graph state and see structural properties.
+                </div>
+                <div class="node-tooltip" id="node-tooltip"></div>
+            </div>
+        </section>
+
+        <!-- ============ EBOOK READER ============ -->
+        <section id="ebook" class="section-wrapper">
+            <div class="section-tag">03 — REFERENCE EBOOK</div>
+            <div class="section-title">World of Graphs</div>
+
+            <div id="ebook-reader" class="reader-layout">
+                <aside class="toc-panel">
+                    <div class="toc-title">TABLE OF CONTENTS</div>
+                    <div class="toc-item is-active" data-index="0" data-page="1">Cover</div>
+                    <div class="toc-item" data-index="1" data-page="2">Table of Contents</div>
+                    <div class="toc-item" data-index="2" data-page="3">Acknowledgements</div>
+                    <div class="toc-item" data-index="3" data-page="4">Preface</div>
+                    <div class="toc-item" data-index="4" data-page="5">Unit 1 — Introduction to Graphs</div>
+                    <div class="toc-item" data-index="5" data-page="6">1.2 Terminology & 1.3 Types</div>
+                    <div class="toc-item" data-index="6" data-page="7">1.4 Degree Sequences</div>
+                    <div class="toc-item" data-index="7" data-page="8">1.5 Matrices & 1.6 Isomorphism</div>
+                    <div class="toc-item" data-index="8" data-page="9">Worked Examples</div>
+                    <div class="toc-item" data-index="9" data-page="10">Review Questions</div>
+                    <div class="toc-item" data-index="10" data-page="11">Unit 2 — Connectivity & Traversability</div>
+                    <div class="toc-item" data-index="11" data-page="12">2.3 Spanning Trees & MSTs</div>
+                    <div class="toc-item" data-index="12" data-page="13">2.4 Blocks & Block-Cut Trees</div>
+                    <div class="toc-item" data-index="13" data-page="14">2.5 Eulerian & 2.6 Hamiltonian</div>
+                    <div class="toc-item" data-index="14" data-page="15">2.7 Digraphs</div>
+                    <div class="toc-item" data-index="15" data-page="16">Applications</div>
+                    <div class="toc-item" data-index="16" data-page="17">About the Authors</div>
+                </aside>
+                <div class="reader-viewer-wrap" id="reader-viewer-wrap">
+                    <div class="reader-toolbar">
+                        <button id="reader-prev" disabled>← Prev</button>
+                        <span class="chapter-label" id="reader-chapter-label">Cover</span>
+                        <button id="reader-next">Next →</button>
+                        <button id="reader-fullscreen">Fullscreen</button>
+                        <a class="btn btn-sm btn-secondary" href="assets/ebook/World%20of%20Graphs.pdf" download>Download</a>
+                    </div>
+                    <iframe id="pdf-viewer" title="Graph Theory Ebook"></iframe>
+                    <div class="reader-fallback" id="reader-fallback">
+                        <p>PDF preview unavailable in this browser.</p>
+                        <p><a href="assets/ebook/World%20of%20Graphs.pdf" download>Download the ebook</a> or
+                           <a id="gdocs-link" href="#" target="_blank" rel="noopener">view in Google Docs</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-names">Aben Vargheese · Chris Abraham Blessan</div>
+            <div class="footer-class">5BDA</div>
+            <div class="footer-tech">Built with native Canvas · No external frameworks</div>
+        </div>
+    </footer>
+
+    <script src="graph-sim.js"></script>
+    <script src="ebook-reader.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

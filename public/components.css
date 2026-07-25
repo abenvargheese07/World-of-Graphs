@@ -1,0 +1,42 @@
+/* ==========================================================================
+   WORLD OF GRAPHS — Component Overrides & Enhancements
+   Supplementary styles for the cyber-teal design system.
+   ========================================================================== */
+
+/* ---------- Card Active State ---------- */
+.card-active .card-id { color: var(--accent); }
+.card-active h3 { color: #ffffff; }
+
+/* ---------- Visualizer Transitions ---------- */
+.visualizer-container.transitioning #graphCanvas {
+    opacity: 0.3; transition: opacity 0.15s ease;
+}
+
+#graphCanvas { opacity: 1; transition: opacity 0.25s ease; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 212, 255, 0.25); }
+
+.toc-panel::-webkit-scrollbar { width: 3px; }
+.toc-panel::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 2px; }
+
+/* ---------- Selection ---------- */
+::selection { background: var(--accent); color: var(--bg-primary); }
+::-moz-selection { background: var(--accent); color: var(--bg-primary); }
+
+/* ---------- Focus States ---------- */
+.btn:focus-visible,
+.card:focus-visible,
+.toc-item:focus-visible,
+.nav-links a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ---------- KaTeX ---------- */
+.katex { font-size: 0.92em !important; }
+.card .katex { color: var(--text-muted); }
+.card-active .katex { color: var(--accent-soft); }

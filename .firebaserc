@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "abengraphtheory"
+  },
+  "targets": {
+    "abengraphtheory": {
+      "hosting": {
+        "main": [
+          "world-of-graphs"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
