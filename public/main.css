@@ -351,7 +351,7 @@ button { font-family: inherit; cursor: none; }
 .reader-layout {
     display: grid; grid-template-columns: 240px 1fr; gap: 0;
     border: 1px solid var(--border-color); border-radius: var(--radius-md);
-    overflow: hidden; height: 560px; background: var(--bg-surface);
+    overflow: hidden; height: 680px; background: var(--bg-surface);
 }
 
 .toc-panel {
@@ -377,7 +377,10 @@ button { font-family: inherit; cursor: none; }
     background: var(--accent-glow);
 }
 
-.reader-viewer-wrap { position: relative; display: flex; flex-direction: column; }
+.reader-viewer-wrap {
+    position: relative; display: flex; flex-direction: column;
+    overflow: hidden; min-height: 0;
+}
 
 .reader-toolbar {
     display: flex; justify-content: space-between; align-items: center;
@@ -407,7 +410,7 @@ button { font-family: inherit; cursor: none; }
 .ebook-scroll-area {
     flex: 1; overflow-y: auto; padding: 0;
     background: #080c18; scroll-behavior: smooth;
-    min-height: 500px;
+    min-height: 0;
 }
 
 .ebook-scroll-area::-webkit-scrollbar { width: 4px; }
@@ -535,6 +538,21 @@ button { font-family: inherit; cursor: none; }
 /* Unit start separator */
 .unit-start { border-top: 2px solid var(--accent); padding-top: 40px; }
 
+/* SVG Graph Figures */
+.graph-figure {
+    display: flex; flex-direction: column; align-items: center;
+    margin: 20px 0; padding: 16px;
+    background: rgba(0, 212, 255, 0.02);
+    border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+}
+
+.graph-figure svg { max-width: 100%; height: auto; }
+
+.graph-figure .fig-label {
+    font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim);
+    font-style: italic; margin-top: 10px; text-align: center;
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -614,7 +632,8 @@ footer::before {
     .node-controls { flex-direction: column; align-items: flex-start; }
     .reader-layout { grid-template-columns: 1fr; height: auto; }
     .toc-panel { max-height: 180px; border-right: none; border-bottom: 1px solid var(--border-color); }
-    #pdf-viewer { min-height: 360px; }
+    .ebook-scroll-area { min-height: 420px; max-height: 60vh; }
+    .ebook-page { padding: 24px 20px; }
     .footer-content { gap: 6px; }
     #cursor-dot, #cursor-glow { display: none; }
     body, button, .card, a { cursor: auto; }

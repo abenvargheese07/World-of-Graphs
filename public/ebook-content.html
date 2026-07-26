@@ -1,8 +1,8 @@
 <!-- 
   WORLD OF GRAPHS — ebook-content.html
-  Full text content extracted from the PDF, rendered as 
-  styled HTML for in-browser reading. The original PDF
-  remains available for download.
+  Full text + inline SVG figures from the PDF,
+  rendered as styled HTML for in-browser reading.
+  The original PDF is available via Download button.
 -->
 
 <div class="ebook-html-reader" id="ebook-content">
@@ -11,7 +11,7 @@
   <section class="ebook-page" id="page-cover" data-page="1">
     <div class="cover-page">
       <div class="cover-math-bg">∑ n² &nbsp; ∫ x²dx &nbsp; det[A] &nbsp; φ(x) &nbsp; √(a²+b²) &nbsp; K<sub>n</sub> &nbsp; deg(v) &nbsp; Σdeg(v)=2|E|</div>
-      <div class="cover-subtitle">GRAPH THEORY & ITS APPLICATIONS</div>
+      <div class="cover-subtitle">GRAPH THEORY &amp; ITS APPLICATIONS</div>
       <h1 class="cover-title">World <span class="accent-text">of</span> Graphs</h1>
       <p class="cover-desc">An Introduction to Graph Theory and Its Applications</p>
       <div class="cover-authors">Chris Abraham Blessan · Aben Vargheese</div>
@@ -25,7 +25,7 @@
       <div class="toc-entry"><span class="toc-cat">FRONT MATTER</span><span class="toc-name">Acknowledgements</span><span class="toc-pg">2</span></div>
       <div class="toc-entry"><span class="toc-cat">FRONT MATTER</span><span class="toc-name">Preface</span><span class="toc-pg">3</span></div>
       <div class="toc-entry"><span class="toc-cat">UNIT ONE</span><span class="toc-name">Introduction to Graphs</span><span class="toc-pg">6</span></div>
-      <div class="toc-entry"><span class="toc-cat">UNIT TWO</span><span class="toc-name">Connectivity & Traversability in Graphs</span><span class="toc-pg">10</span></div>
+      <div class="toc-entry"><span class="toc-cat">UNIT TWO</span><span class="toc-name">Connectivity &amp; Traversability in Graphs</span><span class="toc-pg">10</span></div>
       <div class="toc-entry"><span class="toc-cat">REFERENCE</span><span class="toc-name">References</span><span class="toc-pg">18</span></div>
       <div class="toc-entry"><span class="toc-cat">CLOSING</span><span class="toc-name">About the Authors</span><span class="toc-pg">20</span></div>
     </div>
@@ -62,7 +62,30 @@
     <p>The elements of <em>V</em> are called <strong>vertices</strong> (or nodes), and the elements of <em>E</em> are called <strong>edges</strong> (or lines). An edge <em>e</em> = {<em>u</em>, <em>v</em>} is said to join vertices <em>u</em> and <em>v</em>, and <em>u</em>, <em>v</em> are called the end vertices of <em>e</em>.</p>
     <p><strong>Order and Size.</strong> The order of a graph <em>G</em> is the number of vertices, denoted |<em>V</em>(<em>G</em>)| or <em>n</em>. The size of <em>G</em> is the number of edges, denoted |<em>E</em>(<em>G</em>)| or <em>m</em>.</p>
     <p>Graphs are typically drawn with points representing vertices and line segments or curves representing edges. The physical layout of a drawing has no mathematical significance — what matters is which vertices are joined by which edges.</p>
-    <p class="fig-caption">Fig 1.1 — A simple graph with 4 vertices and 5 edges</p>
+
+    <!-- Fig 1.1 — Simple graph with 4 vertices and 5 edges -->
+    <div class="graph-figure">
+      <svg width="220" height="180" viewBox="0 0 220 180">
+        <!-- Edges -->
+        <line x1="50" y1="40" x2="170" y2="40" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+        <line x1="50" y1="40" x2="50" y2="140" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+        <line x1="50" y1="40" x2="170" y2="140" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+        <line x1="170" y1="40" x2="170" y2="140" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+        <line x1="50" y1="140" x2="170" y2="140" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+        <!-- Nodes -->
+        <circle cx="50" cy="40" r="10" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="170" cy="40" r="10" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="50" cy="140" r="10" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="170" cy="140" r="10" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <!-- Labels -->
+        <text x="50" y="44" text-anchor="middle" fill="#dfe6f0" font-size="13" font-family="Inter,sans-serif" font-weight="600">a</text>
+        <text x="170" y="44" text-anchor="middle" fill="#dfe6f0" font-size="13" font-family="Inter,sans-serif" font-weight="600">b</text>
+        <text x="50" y="144" text-anchor="middle" fill="#dfe6f0" font-size="13" font-family="Inter,sans-serif" font-weight="600">d</text>
+        <text x="170" y="144" text-anchor="middle" fill="#dfe6f0" font-size="13" font-family="Inter,sans-serif" font-weight="600">c</text>
+      </svg>
+      <div class="fig-label">Fig 1.1 — A simple graph with 4 vertices and 5 edges</div>
+    </div>
+
     <p>Graph theory traces its origin to Leonhard Euler's 1736 solution of the Königsberg bridge problem, widely regarded as the first paper in the subject. Since then, the field has grown to underpin network design, algorithm analysis, chemistry, linguistics, and countless areas of applied mathematics and computer science.</p>
   </section>
 
@@ -87,19 +110,73 @@
       <dt>Complete Graph</dt><dd>A simple graph in which every pair of distinct vertices is adjacent, denoted <em>K<sub>n</sub></em> for <em>n</em> vertices. <em>K<sub>n</sub></em> has <em>n</em>(<em>n</em> − 1)/2 edges.</dd>
       <dt>Regular Graph</dt><dd>A graph in which every vertex has the same degree. If every vertex has degree <em>r</em>, the graph is <em>r</em>-regular.</dd>
     </dl>
-    <p class="fig-caption">Fig 1.2 — The complete graph K₅ (every pair of vertices adjacent)</p>
+
+    <!-- Fig 1.2 — K₅ -->
+    <div class="graph-figure">
+      <svg width="240" height="220" viewBox="0 0 240 220">
+        <!-- K5 edges (all 10) -->
+        <line x1="120" y1="20"  x2="210" y2="85"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="120" y1="20"  x2="175" y2="190" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="120" y1="20"  x2="65"  y2="190" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="120" y1="20"  x2="30"  y2="85"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="210" y1="85"  x2="175" y2="190" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="210" y1="85"  x2="65"  y2="190" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="210" y1="85"  x2="30"  y2="85"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="175" y1="190" x2="65"  y2="190" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="175" y1="190" x2="30"  y2="85"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="65"  y1="190" x2="30"  y2="85"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <!-- K5 nodes -->
+        <circle cx="120" cy="20"  r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="210" cy="85"  r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="175" cy="190" r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="65"  cy="190" r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="30"  cy="85"  r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <text x="120" y="24" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif">1</text>
+        <text x="210" y="89" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif">2</text>
+        <text x="175" y="194" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif">3</text>
+        <text x="65"  y="194" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif">4</text>
+        <text x="30"  y="89" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif">5</text>
+      </svg>
+      <div class="fig-label">Fig 1.2 — The complete graph K₅ (every pair of vertices adjacent)</div>
+    </div>
   </section>
 
   <section class="ebook-page" id="page-u1-types" data-page="7">
     <div class="page-header-label">UNIT ONE · INTRODUCTION TO GRAPHS</div>
     <dl class="def-list">
       <dt>Bipartite Graph</dt><dd>A graph <em>G</em> is bipartite if <em>V</em>(<em>G</em>) can be partitioned into two disjoint sets <em>V₁</em> and <em>V₂</em> such that every edge joins a vertex in <em>V₁</em> to a vertex in <em>V₂</em>. If every vertex of <em>V₁</em> is joined to every vertex of <em>V₂</em>, <em>G</em> is a <strong>complete bipartite graph</strong>, denoted <em>K<sub>m,n</sub></em>.</dd>
+    </dl>
+
+    <!-- Fig 1.3 — K₂,₃ -->
+    <div class="graph-figure">
+      <svg width="260" height="160" viewBox="0 0 260 160">
+        <!-- Partition labels -->
+        <text x="60" y="15" text-anchor="middle" fill="#6b7a90" font-size="10" font-family="Inter,sans-serif" font-style="italic">V₁</text>
+        <text x="200" y="15" text-anchor="middle" fill="#6b7a90" font-size="10" font-family="Inter,sans-serif" font-style="italic">V₂</text>
+        <!-- Edges: each V1 vertex to each V2 vertex -->
+        <line x1="60" y1="50"  x2="200" y2="30"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="60" y1="50"  x2="200" y2="80"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="60" y1="50"  x2="200" y2="130" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="60" y1="110" x2="200" y2="30"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="60" y1="110" x2="200" y2="80"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="60" y1="110" x2="200" y2="130" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <!-- V1 nodes -->
+        <circle cx="60" cy="50"  r="9" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="60" cy="110" r="9" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <!-- V2 nodes -->
+        <circle cx="200" cy="30"  r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="200" cy="80"  r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="200" cy="130" r="9" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+      </svg>
+      <div class="fig-label">Fig 1.3 — The complete bipartite graph K<sub>2,3</sub></div>
+    </div>
+
+    <dl class="def-list">
       <dt>Subgraph</dt><dd>A graph <em>H</em> is a subgraph of <em>G</em> if <em>V</em>(<em>H</em>) ⊆ <em>V</em>(<em>G</em>) and <em>E</em>(<em>H</em>) ⊆ <em>E</em>(<em>G</em>).</dd>
       <dt>Spanning Subgraph</dt><dd>A subgraph <em>H</em> of <em>G</em> is a spanning subgraph if <em>V</em>(<em>H</em>) = <em>V</em>(<em>G</em>), i.e., it contains every vertex of <em>G</em>.</dd>
       <dt>Complement of a Graph</dt><dd>The complement of a simple graph <em>G</em>, denoted <em>Ḡ</em>, has the same vertex set as <em>G</em>, with two vertices adjacent in <em>Ḡ</em> if and only if they are not adjacent in <em>G</em>.</dd>
       <dt>Connected Graph</dt><dd>A graph is connected if there is a path between every pair of vertices. A graph that is not connected is called disconnected, and consists of two or more connected components.</dd>
     </dl>
-    <p class="fig-caption">Fig 1.3 — The complete bipartite graph K<sub>2,3</sub></p>
   </section>
 
   <section class="ebook-page" id="page-u1-degree" data-page="8">
@@ -138,10 +215,67 @@
     <div class="example-box">
       <strong>Example 1.1.</strong> Let <em>G</em> be a graph with vertex set {a, b, c, d} and edge set {ab, bc, cd, da, ac}. This graph has order 4 and size 5. Vertex <em>a</em> has degree 3 (adjacent to b, c, and d), so <em>a</em> and <em>c</em> (also degree 3) are the highest-degree vertices, while <em>b</em> and <em>d</em> have degree 2 each. The degree sequence is (3, 3, 2, 2), and by the handshaking lemma the sum 10 correctly equals 2|<em>E</em>| = 10.
     </div>
+
+    <!-- The graph of Example 1.1 (same as Fig 1.1) -->
+    <div class="graph-figure">
+      <svg width="180" height="150" viewBox="0 0 180 150">
+        <line x1="40" y1="30" x2="140" y2="30"  stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+        <line x1="40" y1="30" x2="40"  y2="120" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+        <line x1="40" y1="30" x2="140" y2="120" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+        <line x1="140" y1="30" x2="140" y2="120" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+        <line x1="40" y1="120" x2="140" y2="120" stroke="#34d399" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="40" cy="30" r="9" fill="#0a1020" stroke="#34d399" stroke-width="2"/>
+        <circle cx="140" cy="30" r="9" fill="#0a1020" stroke="#34d399" stroke-width="2"/>
+        <circle cx="40" cy="120" r="9" fill="#0a1020" stroke="#34d399" stroke-width="2"/>
+        <circle cx="140" cy="120" r="9" fill="#0a1020" stroke="#34d399" stroke-width="2"/>
+        <text x="40" y="34" text-anchor="middle" fill="#dfe6f0" font-size="12" font-family="Inter,sans-serif" font-weight="600">a</text>
+        <text x="140" y="34" text-anchor="middle" fill="#dfe6f0" font-size="12" font-family="Inter,sans-serif" font-weight="600">b</text>
+        <text x="40" y="124" text-anchor="middle" fill="#dfe6f0" font-size="12" font-family="Inter,sans-serif" font-weight="600">d</text>
+        <text x="140" y="124" text-anchor="middle" fill="#dfe6f0" font-size="12" font-family="Inter,sans-serif" font-weight="600">c</text>
+      </svg>
+      <div class="fig-label">The graph of Example 1.1</div>
+    </div>
+
     <div class="example-box">
       <strong>Example 1.2.</strong> The <strong>Petersen graph</strong>, a well-known 3-regular graph on 10 vertices and 15 edges, is often used to illustrate subtle properties in graph theory: it is non-planar, has no Hamiltonian cycle, yet is highly symmetric and vertex-transitive. It frequently appears as a counterexample to plausible-looking conjectures.
     </div>
-    <p class="fig-caption">Fig 1.4 — The Petersen graph: 10 vertices, 15 edges, 3-regular</p>
+
+    <!-- Fig 1.4 — Petersen graph -->
+    <div class="graph-figure">
+      <svg width="260" height="250" viewBox="0 0 260 250">
+        <!-- Outer pentagon -->
+        <line x1="130" y1="15"  x2="230" y2="88"  stroke="#00d4ff" stroke-width="1.5" opacity="0.35"/>
+        <line x1="230" y1="88"  x2="192" y2="205" stroke="#00d4ff" stroke-width="1.5" opacity="0.35"/>
+        <line x1="192" y1="205" x2="68"  y2="205" stroke="#00d4ff" stroke-width="1.5" opacity="0.35"/>
+        <line x1="68"  y1="205" x2="30"  y2="88"  stroke="#00d4ff" stroke-width="1.5" opacity="0.35"/>
+        <line x1="30"  y1="88"  x2="130" y2="15"  stroke="#00d4ff" stroke-width="1.5" opacity="0.35"/>
+        <!-- Inner pentagram (star) -->
+        <line x1="130" y1="70"  x2="168" y2="165" stroke="#a855f7" stroke-width="1.5" opacity="0.35"/>
+        <line x1="168" y1="165" x2="80"  y2="107" stroke="#a855f7" stroke-width="1.5" opacity="0.35"/>
+        <line x1="80"  y1="107" x2="180" y2="107" stroke="#a855f7" stroke-width="1.5" opacity="0.35"/>
+        <line x1="180" y1="107" x2="92"  y2="165" stroke="#a855f7" stroke-width="1.5" opacity="0.35"/>
+        <line x1="92"  y1="165" x2="130" y2="70"  stroke="#a855f7" stroke-width="1.5" opacity="0.35"/>
+        <!-- Spokes connecting outer to inner -->
+        <line x1="130" y1="15"  x2="130" y2="70"  stroke="#67e8f9" stroke-width="1.5" opacity="0.3"/>
+        <line x1="230" y1="88"  x2="180" y2="107" stroke="#67e8f9" stroke-width="1.5" opacity="0.3"/>
+        <line x1="192" y1="205" x2="168" y2="165" stroke="#67e8f9" stroke-width="1.5" opacity="0.3"/>
+        <line x1="68"  y1="205" x2="92"  y2="165" stroke="#67e8f9" stroke-width="1.5" opacity="0.3"/>
+        <line x1="30"  y1="88"  x2="80"  y2="107" stroke="#67e8f9" stroke-width="1.5" opacity="0.3"/>
+        <!-- Outer nodes -->
+        <circle cx="130" cy="15"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="230" cy="88"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="192" cy="205" r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="68"  cy="205" r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="30"  cy="88"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <!-- Inner nodes -->
+        <circle cx="130" cy="70"  r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="180" cy="107" r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="168" cy="165" r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="92"  cy="165" r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="80"  cy="107" r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+      </svg>
+      <div class="fig-label">Fig 1.4 — The Petersen graph: 10 vertices, 15 edges, 3-regular</div>
+    </div>
   </section>
 
   <section class="ebook-page" id="page-u1-review" data-page="10">
@@ -184,10 +318,39 @@
     <div class="theorem-box">
       <strong>Theorem 2.2.</strong> A connected graph on <em>n</em> vertices is a tree if and only if it has exactly <em>n</em> − 1 edges and contains no cycle.
     </div>
+
+    <!-- Fig 2.1 — Rooted binary tree -->
+    <div class="graph-figure">
+      <svg width="280" height="180" viewBox="0 0 280 180">
+        <!-- Edges -->
+        <line x1="140" y1="25" x2="80"  y2="75"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="140" y1="25" x2="200" y2="75"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="80"  y1="75" x2="45"  y2="135" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="80"  y1="75" x2="115" y2="135" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="200" y1="75" x2="165" y2="135" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <line x1="200" y1="75" x2="235" y2="135" stroke="#00d4ff" stroke-width="1.5" opacity="0.4"/>
+        <!-- Nodes -->
+        <circle cx="140" cy="25"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="80"  cy="75"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="200" cy="75"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="45"  cy="135" r="7" fill="#0a1020" stroke="#67e8f9" stroke-width="1.5"/>
+        <circle cx="115" cy="135" r="7" fill="#0a1020" stroke="#67e8f9" stroke-width="1.5"/>
+        <circle cx="165" cy="135" r="7" fill="#0a1020" stroke="#67e8f9" stroke-width="1.5"/>
+        <circle cx="235" cy="135" r="7" fill="#0a1020" stroke="#67e8f9" stroke-width="1.5"/>
+        <!-- Root label -->
+        <text x="140" y="12" text-anchor="middle" fill="#6b7a90" font-size="9" font-family="Inter,sans-serif" font-style="italic">root</text>
+        <!-- Leaf labels -->
+        <text x="45"  y="158" text-anchor="middle" fill="#6b7a90" font-size="9" font-family="Inter,sans-serif">leaf</text>
+        <text x="115" y="158" text-anchor="middle" fill="#6b7a90" font-size="9" font-family="Inter,sans-serif">leaf</text>
+        <text x="165" y="158" text-anchor="middle" fill="#6b7a90" font-size="9" font-family="Inter,sans-serif">leaf</text>
+        <text x="235" y="158" text-anchor="middle" fill="#6b7a90" font-size="9" font-family="Inter,sans-serif">leaf</text>
+      </svg>
+      <div class="fig-label">Fig 2.1 — A rooted binary tree</div>
+    </div>
   </section>
 
   <section class="ebook-page" id="page-u2-span" data-page="12">
-    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY &amp; TRAVERSABILITY</div>
 
     <h3 id="sec-2-3">2.3 &nbsp; Spanning Trees and Minimum Spanning Trees</h3>
     <dl class="def-list">
@@ -217,7 +380,7 @@
   </section>
 
   <section class="ebook-page" id="page-u2-blocks" data-page="13">
-    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY &amp; TRAVERSABILITY</div>
 
     <h3 id="sec-2-4">2.4 &nbsp; Blocks and Block-Cut Tree Representation</h3>
     <dl class="def-list">
@@ -228,7 +391,7 @@
   </section>
 
   <section class="ebook-page" id="page-u2-euler" data-page="14">
-    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY &amp; TRAVERSABILITY</div>
 
     <h3 id="sec-2-5">2.5 &nbsp; Eulerian Graphs</h3>
     <dl class="def-list">
@@ -242,7 +405,31 @@
       <strong>Theorem 2.4.</strong> A connected graph <em>G</em> has an Eulerian trail (but not a circuit) if and only if exactly two vertices have odd degree.
     </div>
     <p>These results resolved the Königsberg bridge problem: since all four landmasses had odd degree, no walk crossing each bridge exactly once was possible.</p>
-    <p class="fig-caption">Fig 2.2 — The Königsberg bridges, modeled as a graph</p>
+
+    <!-- Fig 2.2 — Königsberg bridges -->
+    <div class="graph-figure">
+      <svg width="260" height="180" viewBox="0 0 260 180">
+        <!-- Landmasses as larger nodes -->
+        <circle cx="50"  cy="90"  r="18" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="1.5"/>
+        <circle cx="130" cy="30"  r="18" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="1.5"/>
+        <circle cx="130" cy="150" r="18" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="1.5"/>
+        <circle cx="210" cy="90"  r="18" fill="rgba(0,212,255,0.08)" stroke="#00d4ff" stroke-width="1.5"/>
+        <!-- 7 bridges (edges) -->
+        <path d="M68,82 Q100,50 112,38" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+        <path d="M68,98 Q100,130 112,142" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+        <line x1="68" y1="90" x2="192" y2="90" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+        <path d="M148,38 Q170,50 192,82" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+        <path d="M148,142 Q170,130 192,98" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.5"/>
+        <path d="M112,45 Q90,65 68,85" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.3"/>
+        <path d="M112,135 Q90,115 68,95" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.3"/>
+        <!-- Labels -->
+        <text x="50"  y="94" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif" font-weight="600">A</text>
+        <text x="130" y="34" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif" font-weight="600">B</text>
+        <text x="130" y="154" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif" font-weight="600">C</text>
+        <text x="210" y="94" text-anchor="middle" fill="#dfe6f0" font-size="11" font-family="Inter,sans-serif" font-weight="600">D</text>
+      </svg>
+      <div class="fig-label">Fig 2.2 — The Königsberg bridges, modeled as a graph</div>
+    </div>
 
     <h3 id="sec-2-6">2.6 &nbsp; Hamiltonian Graphs</h3>
     <dl class="def-list">
@@ -252,7 +439,7 @@
   </section>
 
   <section class="ebook-page" id="page-u2-ham" data-page="15">
-    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY &amp; TRAVERSABILITY</div>
     <p>Unlike the Eulerian case, no known necessary and sufficient condition characterizes Hamiltonian graphs in general — determining Hamiltonicity is an NP-complete problem. However, useful sufficient conditions exist:</p>
     <div class="theorem-box">
       <strong>Theorem 2.5 (Dirac's Theorem, 1952).</strong> If <em>G</em> is a simple graph with <em>n</em> ≥ 3 vertices and every vertex has degree at least <em>n</em>/2, then <em>G</em> is Hamiltonian.
@@ -265,11 +452,37 @@
       <dt>In-degree and Out-degree</dt><dd>For a vertex <em>v</em> in a digraph, the <strong>in-degree</strong> is the number of arcs directed into <em>v</em>, and the <strong>out-degree</strong> is the number of arcs directed out of <em>v</em>.</dd>
     </dl>
     <p>Digraphs model relationships with inherent direction — dependencies, one-way links, precedence in scheduling — and extend naturally to concepts such as directed paths, strong connectivity, and tournaments, in which every pair of vertices is joined by exactly one arc.</p>
-    <p class="fig-caption">Fig 2.3 — A directed acyclic graph (DAG)</p>
+
+    <!-- Fig 2.3 — DAG -->
+    <div class="graph-figure">
+      <svg width="260" height="160" viewBox="0 0 260 160">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#00d4ff" opacity="0.7"/>
+          </marker>
+        </defs>
+        <!-- Directed edges -->
+        <line x1="50"  y1="35"  x2="120" y2="35"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow)"/>
+        <line x1="50"  y1="35"  x2="80"  y2="100" stroke="#00d4ff" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow)"/>
+        <line x1="130" y1="35"  x2="200" y2="35"  stroke="#00d4ff" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow)"/>
+        <line x1="130" y1="35"  x2="140" y2="100" stroke="#00d4ff" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow)"/>
+        <line x1="90"  y1="105" x2="130" y2="105" stroke="#00d4ff" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow)"/>
+        <line x1="210" y1="35"  x2="200" y2="100" stroke="#00d4ff" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow)"/>
+        <line x1="150" y1="105" x2="190" y2="105" stroke="#00d4ff" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow)"/>
+        <!-- Nodes -->
+        <circle cx="50"  cy="35"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="130" cy="35"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="210" cy="35"  r="8" fill="#0a1020" stroke="#00d4ff" stroke-width="2"/>
+        <circle cx="80"  cy="105" r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="140" cy="105" r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+        <circle cx="200" cy="105" r="8" fill="#0a1020" stroke="#a855f7" stroke-width="2"/>
+      </svg>
+      <div class="fig-label">Fig 2.3 — A directed acyclic graph (DAG)</div>
+    </div>
   </section>
 
   <section class="ebook-page" id="page-u2-apps" data-page="16">
-    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY &amp; TRAVERSABILITY</div>
 
     <h3 id="sec-apps">Applications</h3>
     <p>Spanning trees are the backbone of network design: telecommunication and electrical grid planners use minimum spanning trees to connect every location at the lowest possible infrastructure cost. Kruskal's and Prim's algorithms, though simple, remain in active industrial use for exactly this reason.</p>
