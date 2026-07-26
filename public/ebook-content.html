@@ -1,0 +1,288 @@
+<!-- 
+  WORLD OF GRAPHS — ebook-content.html
+  Full text content extracted from the PDF, rendered as 
+  styled HTML for in-browser reading. The original PDF
+  remains available for download.
+-->
+
+<div class="ebook-html-reader" id="ebook-content">
+
+  <!-- ─── COVER ─── -->
+  <section class="ebook-page" id="page-cover" data-page="1">
+    <div class="cover-page">
+      <div class="cover-math-bg">∑ n² &nbsp; ∫ x²dx &nbsp; det[A] &nbsp; φ(x) &nbsp; √(a²+b²) &nbsp; K<sub>n</sub> &nbsp; deg(v) &nbsp; Σdeg(v)=2|E|</div>
+      <div class="cover-subtitle">GRAPH THEORY & ITS APPLICATIONS</div>
+      <h1 class="cover-title">World <span class="accent-text">of</span> Graphs</h1>
+      <p class="cover-desc">An Introduction to Graph Theory and Its Applications</p>
+      <div class="cover-authors">Chris Abraham Blessan · Aben Vargheese</div>
+    </div>
+  </section>
+
+  <!-- ─── TABLE OF CONTENTS ─── -->
+  <section class="ebook-page" id="page-toc" data-page="2">
+    <h2 class="unit-header">Table of Contents</h2>
+    <div class="toc-grid">
+      <div class="toc-entry"><span class="toc-cat">FRONT MATTER</span><span class="toc-name">Acknowledgements</span><span class="toc-pg">2</span></div>
+      <div class="toc-entry"><span class="toc-cat">FRONT MATTER</span><span class="toc-name">Preface</span><span class="toc-pg">3</span></div>
+      <div class="toc-entry"><span class="toc-cat">UNIT ONE</span><span class="toc-name">Introduction to Graphs</span><span class="toc-pg">6</span></div>
+      <div class="toc-entry"><span class="toc-cat">UNIT TWO</span><span class="toc-name">Connectivity & Traversability in Graphs</span><span class="toc-pg">10</span></div>
+      <div class="toc-entry"><span class="toc-cat">REFERENCE</span><span class="toc-name">References</span><span class="toc-pg">18</span></div>
+      <div class="toc-entry"><span class="toc-cat">CLOSING</span><span class="toc-name">About the Authors</span><span class="toc-pg">20</span></div>
+    </div>
+  </section>
+
+  <!-- ─── ACKNOWLEDGEMENTS ─── -->
+  <section class="ebook-page" id="page-ack" data-page="3">
+    <div class="page-header-label">FRONT MATTER</div>
+    <h2>Acknowledgements</h2>
+    <p>We are grateful to our teachers, mentors, and peers whose guidance shaped both our understanding of graph theory and our approach to teaching it. Their feedback on early drafts of this material helped clarify explanations that might otherwise have remained abstract.</p>
+    <p>We also thank the students whose questions, over many semesters, revealed exactly where a textbook needed to slow down, add an example, or state a definition more carefully. This book is, in large part, a response to those questions.</p>
+    <p>Finally, we thank our families for their patience and support throughout the writing of this book.</p>
+  </section>
+
+  <!-- ─── PREFACE ─── -->
+  <section class="ebook-page" id="page-preface" data-page="4">
+    <div class="page-header-label">FRONT MATTER</div>
+    <h2>Preface</h2>
+    <p>Graphs are among the simplest and most powerful structures in mathematics. A handful of dots and lines can model a road network, a social circle, a molecule, or the internet itself. Yet beneath this simplicity lies a rich and rigorous theory that has shaped modern computer science, operations research, and applied mathematics.</p>
+    <p><em>World of Graphs</em> is written as a concise companion for students encountering graph theory for the first time. It follows a structured progression: beginning with the language of graphs, moving through connectivity and traversability, and concluding with trees, matchings, and planarity.</p>
+    <p>Each section defines its concepts precisely, illustrates them with worked examples, and states the key theorems a learner is expected to know and apply. The aim throughout is clarity without sacrificing mathematical rigor, so that the material serves equally well for classroom instruction and self-study.</p>
+    <p>We hope this book helps you see, quite literally, the world in graphs.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       UNIT ONE — Introduction to Graphs
+       ═══════════════════════════════════════════ -->
+  <section class="ebook-page unit-start" id="page-u1" data-page="5">
+    <div class="unit-badge">UNIT ONE</div>
+    <h2 class="unit-header">Introduction to Graphs</h2>
+
+    <h3 id="sec-1-1">1.1 &nbsp; What is a Graph?</h3>
+    <p>A <strong>graph</strong> <em>G</em> is a mathematical structure used to model pairwise relationships between objects. Formally, a graph is an ordered pair <em>G</em> = (<em>V</em>, <em>E</em>), where <em>V</em> is a finite non-empty set called the <strong>vertex set</strong>, and <em>E</em> is a set of unordered pairs of vertices called the <strong>edge set</strong>.</p>
+    <p>The elements of <em>V</em> are called <strong>vertices</strong> (or nodes), and the elements of <em>E</em> are called <strong>edges</strong> (or lines). An edge <em>e</em> = {<em>u</em>, <em>v</em>} is said to join vertices <em>u</em> and <em>v</em>, and <em>u</em>, <em>v</em> are called the end vertices of <em>e</em>.</p>
+    <p><strong>Order and Size.</strong> The order of a graph <em>G</em> is the number of vertices, denoted |<em>V</em>(<em>G</em>)| or <em>n</em>. The size of <em>G</em> is the number of edges, denoted |<em>E</em>(<em>G</em>)| or <em>m</em>.</p>
+    <p>Graphs are typically drawn with points representing vertices and line segments or curves representing edges. The physical layout of a drawing has no mathematical significance — what matters is which vertices are joined by which edges.</p>
+    <p class="fig-caption">Fig 1.1 — A simple graph with 4 vertices and 5 edges</p>
+    <p>Graph theory traces its origin to Leonhard Euler's 1736 solution of the Königsberg bridge problem, widely regarded as the first paper in the subject. Since then, the field has grown to underpin network design, algorithm analysis, chemistry, linguistics, and countless areas of applied mathematics and computer science.</p>
+  </section>
+
+  <section class="ebook-page" id="page-u1-terms" data-page="6">
+    <div class="page-header-label">UNIT ONE · INTRODUCTION TO GRAPHS</div>
+
+    <h3 id="sec-1-2">1.2 &nbsp; Basic Graph Terminology</h3>
+    <dl class="def-list">
+      <dt>Adjacent Vertices</dt><dd>Two vertices <em>u</em> and <em>v</em> are adjacent if there is an edge joining them, i.e., {<em>u</em>, <em>v</em>} ∈ <em>E</em>.</dd>
+      <dt>Adjacent Edges</dt><dd>Two edges are adjacent if they share a common end vertex.</dd>
+      <dt>Incidence</dt><dd>An edge <em>e</em> = {<em>u</em>, <em>v</em>} is incident with each of its end vertices <em>u</em> and <em>v</em>.</dd>
+      <dt>Loop</dt><dd>An edge joining a vertex to itself is called a loop.</dd>
+      <dt>Multiple Edges</dt><dd>Two or more edges joining the same pair of vertices are called multiple or parallel edges.</dd>
+      <dt>Simple Graph</dt><dd>A graph with no loops and no multiple edges. Unless stated otherwise, graphs in this book are assumed to be simple.</dd>
+      <dt>Empty Graph</dt><dd>A graph with <em>E</em> = ∅ (no edges).</dd>
+      <dt>Null Graph</dt><dd>A graph with <em>V</em> = ∅ (no vertices, and hence no edges).</dd>
+      <dt>Trivial Graph</dt><dd>A graph with exactly one vertex and no edges.</dd>
+    </dl>
+
+    <h3 id="sec-1-3">1.3 &nbsp; Types and Classes of Graphs</h3>
+    <dl class="def-list">
+      <dt>Complete Graph</dt><dd>A simple graph in which every pair of distinct vertices is adjacent, denoted <em>K<sub>n</sub></em> for <em>n</em> vertices. <em>K<sub>n</sub></em> has <em>n</em>(<em>n</em> − 1)/2 edges.</dd>
+      <dt>Regular Graph</dt><dd>A graph in which every vertex has the same degree. If every vertex has degree <em>r</em>, the graph is <em>r</em>-regular.</dd>
+    </dl>
+    <p class="fig-caption">Fig 1.2 — The complete graph K₅ (every pair of vertices adjacent)</p>
+  </section>
+
+  <section class="ebook-page" id="page-u1-types" data-page="7">
+    <div class="page-header-label">UNIT ONE · INTRODUCTION TO GRAPHS</div>
+    <dl class="def-list">
+      <dt>Bipartite Graph</dt><dd>A graph <em>G</em> is bipartite if <em>V</em>(<em>G</em>) can be partitioned into two disjoint sets <em>V₁</em> and <em>V₂</em> such that every edge joins a vertex in <em>V₁</em> to a vertex in <em>V₂</em>. If every vertex of <em>V₁</em> is joined to every vertex of <em>V₂</em>, <em>G</em> is a <strong>complete bipartite graph</strong>, denoted <em>K<sub>m,n</sub></em>.</dd>
+      <dt>Subgraph</dt><dd>A graph <em>H</em> is a subgraph of <em>G</em> if <em>V</em>(<em>H</em>) ⊆ <em>V</em>(<em>G</em>) and <em>E</em>(<em>H</em>) ⊆ <em>E</em>(<em>G</em>).</dd>
+      <dt>Spanning Subgraph</dt><dd>A subgraph <em>H</em> of <em>G</em> is a spanning subgraph if <em>V</em>(<em>H</em>) = <em>V</em>(<em>G</em>), i.e., it contains every vertex of <em>G</em>.</dd>
+      <dt>Complement of a Graph</dt><dd>The complement of a simple graph <em>G</em>, denoted <em>Ḡ</em>, has the same vertex set as <em>G</em>, with two vertices adjacent in <em>Ḡ</em> if and only if they are not adjacent in <em>G</em>.</dd>
+      <dt>Connected Graph</dt><dd>A graph is connected if there is a path between every pair of vertices. A graph that is not connected is called disconnected, and consists of two or more connected components.</dd>
+    </dl>
+    <p class="fig-caption">Fig 1.3 — The complete bipartite graph K<sub>2,3</sub></p>
+  </section>
+
+  <section class="ebook-page" id="page-u1-degree" data-page="8">
+    <div class="page-header-label">UNIT ONE · INTRODUCTION TO GRAPHS</div>
+
+    <h3 id="sec-1-4">1.4 &nbsp; Degree Sequences and the Handshaking Lemma</h3>
+    <dl class="def-list">
+      <dt>Degree</dt><dd>The degree of a vertex <em>v</em>, denoted deg(<em>v</em>), is the number of edges incident with <em>v</em> (a loop counting twice).</dd>
+      <dt>Degree Sequence</dt><dd>The degree sequence of a graph is the list of vertex degrees, usually arranged in non-increasing order.</dd>
+    </dl>
+    <div class="theorem-box">
+      <strong>Theorem 1.1 (Handshaking Lemma).</strong> For any graph <em>G</em> = (<em>V</em>, <em>E</em>), the sum of the degrees of all vertices equals twice the number of edges: <strong>Σ deg(<em>v</em>) = 2|<em>E</em>|</strong>
+    </div>
+    <p><strong>Corollary.</strong> Every graph has an even number of vertices of odd degree.</p>
+    <p><strong>Example.</strong> Consider a graph with degree sequence (3, 3, 2, 2, 2). The sum is 12, so the graph has 6 edges. Since there are exactly two vertices of odd degree, this is consistent with the corollary above.</p>
+
+    <h3 id="sec-1-5">1.5 &nbsp; Graph Representation: Matrices</h3>
+    <dl class="def-list">
+      <dt>Adjacency Matrix</dt><dd>For a graph <em>G</em> with vertices <em>v₁</em>, …, <em>vₙ</em>, the adjacency matrix <em>A</em> is an <em>n</em> × <em>n</em> matrix where <em>A</em>[<em>i</em>][<em>j</em>] = 1 if <em>vᵢ</em> and <em>vⱼ</em> are adjacent, and 0 otherwise. For a simple graph, <em>A</em> is symmetric with zero diagonal.</dd>
+      <dt>Incidence Matrix</dt><dd>The incidence matrix <em>B</em> of a graph with <em>n</em> vertices and <em>m</em> edges is an <em>n</em> × <em>m</em> matrix where <em>B</em>[<em>i</em>][<em>j</em>] = 1 if vertex <em>vᵢ</em> is incident with edge <em>eⱼ</em>, and 0 otherwise.</dd>
+    </dl>
+    <p>Matrix representations are the foundation of computational graph algorithms: adjacency matrices allow constant-time edge lookups, while adjacency lists (a related structure not detailed here) are preferred for sparse graphs due to lower memory use.</p>
+  </section>
+
+  <section class="ebook-page" id="page-u1-iso" data-page="9">
+    <div class="page-header-label">UNIT ONE · INTRODUCTION TO GRAPHS</div>
+
+    <h3 id="sec-1-6">1.6 &nbsp; Isomorphic Graphs</h3>
+    <dl class="def-list">
+      <dt>Graph Isomorphism</dt><dd>Two graphs <em>G₁</em> = (<em>V₁</em>, <em>E₁</em>) and <em>G₂</em> = (<em>V₂</em>, <em>E₂</em>) are <strong>isomorphic</strong> if there exists a bijection <em>f</em>: <em>V₁</em> → <em>V₂</em> such that {<em>u</em>, <em>v</em>} ∈ <em>E₁</em> if and only if {<em>f</em>(<em>u</em>), <em>f</em>(<em>v</em>)} ∈ <em>E₂</em>.</dd>
+    </dl>
+    <p>Isomorphic graphs are structurally identical, differing only in the labeling of vertices. Necessary (but not sufficient) conditions for isomorphism include equal order, equal size, and identical degree sequences. Determining isomorphism in general is computationally challenging and remains an active area of research.</p>
+    <p>Bipartite graphs model matching problems such as assigning students to schools or workers to tasks. Regular graphs appear in the design of interconnection networks, where a uniform degree ensures balanced load across all nodes. The adjacency matrix representation, in particular, is the starting point for spectral graph theory, which studies graph properties through the eigenvalues of associated matrices — a technique used in Google's original PageRank algorithm and in modern graph neural networks.</p>
+
+    <h3 id="sec-examples">Worked Examples</h3>
+    <div class="example-box">
+      <strong>Example 1.1.</strong> Let <em>G</em> be a graph with vertex set {a, b, c, d} and edge set {ab, bc, cd, da, ac}. This graph has order 4 and size 5. Vertex <em>a</em> has degree 3 (adjacent to b, c, and d), so <em>a</em> and <em>c</em> (also degree 3) are the highest-degree vertices, while <em>b</em> and <em>d</em> have degree 2 each. The degree sequence is (3, 3, 2, 2), and by the handshaking lemma the sum 10 correctly equals 2|<em>E</em>| = 10.
+    </div>
+    <div class="example-box">
+      <strong>Example 1.2.</strong> The <strong>Petersen graph</strong>, a well-known 3-regular graph on 10 vertices and 15 edges, is often used to illustrate subtle properties in graph theory: it is non-planar, has no Hamiltonian cycle, yet is highly symmetric and vertex-transitive. It frequently appears as a counterexample to plausible-looking conjectures.
+    </div>
+    <p class="fig-caption">Fig 1.4 — The Petersen graph: 10 vertices, 15 edges, 3-regular</p>
+  </section>
+
+  <section class="ebook-page" id="page-u1-review" data-page="10">
+    <div class="page-header-label">UNIT ONE · INTRODUCTION TO GRAPHS</div>
+    <h3 id="sec-review">Review Questions</h3>
+    <ol class="review-list">
+      <li>Define a simple graph and explain how it differs from a multigraph.</li>
+      <li>Prove that the sum of degrees in any graph is even.</li>
+      <li>Construct the complement of the complete bipartite graph K<sub>2,3</sub>. What does it look like?</li>
+      <li>Give an example of two non-isomorphic graphs with identical degree sequences.</li>
+      <li>Write the incidence matrix for the graph in Example 1.1.</li>
+    </ol>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       UNIT TWO — Connectivity & Traversability
+       ═══════════════════════════════════════════ -->
+  <section class="ebook-page unit-start" id="page-u2" data-page="11">
+    <div class="unit-badge">UNIT TWO</div>
+    <h2 class="unit-header">Connectivity and Traversability in Graphs</h2>
+
+    <h3 id="sec-2-1">2.1 &nbsp; Bridges and Cut-Vertices</h3>
+    <dl class="def-list">
+      <dt>Bridge</dt><dd>An edge whose removal increases the number of connected components of a graph is called a <strong>bridge</strong> (or cut-edge).</dd>
+      <dt>Cut-Vertex</dt><dd>A vertex whose removal (together with its incident edges) increases the number of connected components is called a <strong>cut-vertex</strong>.</dd>
+    </dl>
+    <div class="theorem-box">
+      <strong>Theorem 2.1.</strong> An edge <em>e</em> of a connected graph <em>G</em> is a bridge if and only if <em>e</em> lies on no cycle of <em>G</em>.
+    </div>
+    <p>Bridges and cut-vertices identify the structurally fragile parts of a network — points whose failure disconnects the system. This idea is central to the analysis of network reliability.</p>
+
+    <h3 id="sec-2-2">2.2 &nbsp; Trees, Rooted Trees, and Binary Trees</h3>
+    <dl class="def-list">
+      <dt>Tree</dt><dd>A connected acyclic graph is called a <strong>tree</strong>. A tree on <em>n</em> vertices always has exactly <em>n</em> − 1 edges.</dd>
+      <dt>Forest</dt><dd>A graph in which every component is a tree (i.e., an acyclic graph, not necessarily connected).</dd>
+      <dt>Leaf</dt><dd>A vertex of degree 1 in a tree is called a <strong>leaf</strong>, or pendant vertex.</dd>
+      <dt>Rooted Tree</dt><dd>A tree in which one vertex is distinguished as the <strong>root</strong> is called a rooted tree. Every other vertex has a unique path to the root, inducing a parent–child hierarchy.</dd>
+      <dt>Binary Tree</dt><dd>A rooted tree in which every vertex has at most two children.</dd>
+    </dl>
+    <div class="theorem-box">
+      <strong>Theorem 2.2.</strong> A connected graph on <em>n</em> vertices is a tree if and only if it has exactly <em>n</em> − 1 edges and contains no cycle.
+    </div>
+  </section>
+
+  <section class="ebook-page" id="page-u2-span" data-page="12">
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+
+    <h3 id="sec-2-3">2.3 &nbsp; Spanning Trees and Minimum Spanning Trees</h3>
+    <dl class="def-list">
+      <dt>Spanning Tree</dt><dd>A spanning tree of a connected graph <em>G</em> is a spanning subgraph of <em>G</em> that is also a tree — it includes every vertex of <em>G</em> using the minimum number of edges required to keep the graph connected.</dd>
+      <dt>Minimum Spanning Tree (MST)</dt><dd>If each edge of <em>G</em> is assigned a weight, a minimum spanning tree is a spanning tree whose total edge weight is as small as possible.</dd>
+    </dl>
+    <p>Two classical greedy algorithms construct an MST:</p>
+    <div class="algo-box">
+      <strong>Kruskal's Algorithm</strong>
+      <ol>
+        <li>Sort all edges of <em>G</em> in non-decreasing order of weight.</li>
+        <li>Initialize an empty edge set <em>T</em>.</li>
+        <li>For each edge in sorted order, add it to <em>T</em> if doing so does not create a cycle among the edges already in <em>T</em>.</li>
+        <li>Stop when <em>T</em> contains <em>n</em> − 1 edges; <em>T</em> is the minimum spanning tree.</li>
+      </ol>
+    </div>
+    <div class="algo-box">
+      <strong>Prim's Algorithm</strong>
+      <ol>
+        <li>Choose an arbitrary starting vertex and mark it as visited.</li>
+        <li>Among all edges with exactly one visited end vertex, select the one of minimum weight.</li>
+        <li>Add this edge and its unvisited end vertex to the tree; mark the vertex visited.</li>
+        <li>Repeat until all vertices are visited.</li>
+      </ol>
+    </div>
+    <p>Both algorithms are proven optimal by the <strong>cut property</strong>: for any partition of vertices into two sets, the minimum-weight edge crossing the partition belongs to some MST.</p>
+  </section>
+
+  <section class="ebook-page" id="page-u2-blocks" data-page="13">
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+
+    <h3 id="sec-2-4">2.4 &nbsp; Blocks and Block-Cut Tree Representation</h3>
+    <dl class="def-list">
+      <dt>Block</dt><dd>A block of a graph is a maximal connected subgraph with no cut-vertex of its own — either a maximal 2-connected subgraph, a bridge, or an isolated vertex.</dd>
+      <dt>Block-Cut Tree</dt><dd>The block-cut tree of a graph represents the arrangement of its blocks and cut-vertices as a tree, with an edge joining a block-node to a cut-vertex node whenever the cut-vertex belongs to that block.</dd>
+    </dl>
+    <p>This representation compresses a complex graph into a tree structure that reveals precisely how its 2-connected pieces are stitched together through cut-vertices — useful in analyzing the modular structure of large networks.</p>
+  </section>
+
+  <section class="ebook-page" id="page-u2-euler" data-page="14">
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+
+    <h3 id="sec-2-5">2.5 &nbsp; Eulerian Graphs</h3>
+    <dl class="def-list">
+      <dt>Eulerian Circuit</dt><dd>A closed walk that traverses every edge of a graph exactly once. A graph containing such a circuit is called <strong>Eulerian</strong>.</dd>
+      <dt>Eulerian Trail</dt><dd>An open walk traversing every edge exactly once (but not returning to the start).</dd>
+    </dl>
+    <div class="theorem-box">
+      <strong>Theorem 2.3 (Euler, 1736).</strong> A connected graph <em>G</em> is Eulerian if and only if every vertex of <em>G</em> has even degree.
+    </div>
+    <div class="theorem-box">
+      <strong>Theorem 2.4.</strong> A connected graph <em>G</em> has an Eulerian trail (but not a circuit) if and only if exactly two vertices have odd degree.
+    </div>
+    <p>These results resolved the Königsberg bridge problem: since all four landmasses had odd degree, no walk crossing each bridge exactly once was possible.</p>
+    <p class="fig-caption">Fig 2.2 — The Königsberg bridges, modeled as a graph</p>
+
+    <h3 id="sec-2-6">2.6 &nbsp; Hamiltonian Graphs</h3>
+    <dl class="def-list">
+      <dt>Hamiltonian Cycle</dt><dd>A cycle that visits every vertex of a graph exactly once (returning to the start). A graph containing one is <strong>Hamiltonian</strong>.</dd>
+      <dt>Hamiltonian Path</dt><dd>A path visiting every vertex exactly once, without returning to the start.</dd>
+    </dl>
+  </section>
+
+  <section class="ebook-page" id="page-u2-ham" data-page="15">
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+    <p>Unlike the Eulerian case, no known necessary and sufficient condition characterizes Hamiltonian graphs in general — determining Hamiltonicity is an NP-complete problem. However, useful sufficient conditions exist:</p>
+    <div class="theorem-box">
+      <strong>Theorem 2.5 (Dirac's Theorem, 1952).</strong> If <em>G</em> is a simple graph with <em>n</em> ≥ 3 vertices and every vertex has degree at least <em>n</em>/2, then <em>G</em> is Hamiltonian.
+    </div>
+    <p><strong>Relationship between Eulerian and Hamiltonian Graphs.</strong> The two properties are logically independent: a graph may be Eulerian without being Hamiltonian, Hamiltonian without being Eulerian, both, or neither. Eulerian graphs traverse every edge once; Hamiltonian graphs visit every vertex once — these are fundamentally different combinatorial requirements.</p>
+
+    <h3 id="sec-2-7">2.7 &nbsp; Digraphs</h3>
+    <dl class="def-list">
+      <dt>Directed Graph (Digraph)</dt><dd>A digraph <em>D</em> = (<em>V</em>, <em>A</em>) consists of a vertex set <em>V</em> and a set <em>A</em> of ordered pairs of vertices called <strong>arcs</strong> (or directed edges). An arc (<em>u</em>, <em>v</em>) is directed from <em>u</em> to <em>v</em>.</dd>
+      <dt>In-degree and Out-degree</dt><dd>For a vertex <em>v</em> in a digraph, the <strong>in-degree</strong> is the number of arcs directed into <em>v</em>, and the <strong>out-degree</strong> is the number of arcs directed out of <em>v</em>.</dd>
+    </dl>
+    <p>Digraphs model relationships with inherent direction — dependencies, one-way links, precedence in scheduling — and extend naturally to concepts such as directed paths, strong connectivity, and tournaments, in which every pair of vertices is joined by exactly one arc.</p>
+    <p class="fig-caption">Fig 2.3 — A directed acyclic graph (DAG)</p>
+  </section>
+
+  <section class="ebook-page" id="page-u2-apps" data-page="16">
+    <div class="page-header-label">UNIT TWO · CONNECTIVITY & TRAVERSABILITY</div>
+
+    <h3 id="sec-apps">Applications</h3>
+    <p>Spanning trees are the backbone of network design: telecommunication and electrical grid planners use minimum spanning trees to connect every location at the lowest possible infrastructure cost. Kruskal's and Prim's algorithms, though simple, remain in active industrial use for exactly this reason.</p>
+    <p>Eulerian circuits solve route-inspection problems — a postal worker, a street-sweeping truck, or a drone inspecting power lines all want to traverse every required edge exactly once with minimum repeated travel.</p>
+    <p>Hamiltonian paths, by contrast, underlie the famous <strong>Traveling Salesman Problem</strong>, in which a route must visit every city exactly once at minimum total cost; unlike the Eulerian case, no efficient general algorithm is known, making it a cornerstone problem in computational complexity theory.</p>
+    <p>Digraphs and their in/out-degree structure model task scheduling through <strong>directed acyclic graphs (DAGs)</strong>, where an arc (<em>u</em>, <em>v</em>) means task <em>u</em> must precede task <em>v</em>. Topological sorting of a DAG produces a valid task order — a technique used in build systems, spreadsheet recalculation, and course-prerequisite planning.</p>
+  </section>
+
+  <!-- ─── ABOUT THE AUTHORS ─── -->
+  <section class="ebook-page" id="page-authors" data-page="17">
+    <h2 class="unit-header">About the Authors</h2>
+    <p><strong>Chris Abraham Blessan</strong> and <strong>Aben Vargheese</strong> bring together academic training in mathematics and computer science to present graph theory in a form that is accessible without sacrificing rigor.</p>
+    <p><em>World of Graphs</em> grew out of classroom teaching and mentoring, aiming to connect formal definitions to intuitive, worked examples for the next generation of learners.</p>
+  </section>
+
+</div>

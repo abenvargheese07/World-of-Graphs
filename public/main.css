@@ -403,15 +403,137 @@ button { font-family: inherit; cursor: none; }
 
 .reader-toolbar button:disabled { opacity: 0.3; }
 
-#pdf-viewer { flex: 1; width: 100%; border: none; background: #080c18; }
-
-.reader-fallback {
-    padding: 32px; text-align: center; color: var(--text-muted); font-size: 0.85rem;
-    display: none;
+/* ---------- HTML Ebook Scroll Area ---------- */
+.ebook-scroll-area {
+    flex: 1; overflow-y: auto; padding: 0;
+    background: #080c18; scroll-behavior: smooth;
+    min-height: 500px;
 }
 
-.reader-fallback.visible { display: block; }
-.reader-fallback a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ebook-scroll-area::-webkit-scrollbar { width: 4px; }
+.ebook-scroll-area::-webkit-scrollbar-track { background: transparent; }
+.ebook-scroll-area::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.12); border-radius: 2px; }
+
+/* ---------- Ebook Pages ---------- */
+.ebook-page {
+    padding: 36px 40px; border-bottom: 1px solid var(--border-color);
+    max-width: 740px; margin: 0 auto;
+    animation: fadeInUp 0.3s ease both;
+}
+
+.ebook-page h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.3px; }
+.ebook-page h3 { font-size: 1.05rem; font-weight: 600; margin: 28px 0 12px; color: var(--accent-soft); }
+.ebook-page p { font-size: 0.88rem; line-height: 1.75; color: var(--text-main); margin-bottom: 12px; }
+.ebook-page strong { color: #fff; }
+.ebook-page em { color: var(--accent-lighter); font-style: italic; }
+
+.page-header-label {
+    font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 2px;
+    color: var(--text-dim); margin-bottom: 20px; font-weight: 500;
+}
+
+/* Cover page */
+.cover-page { text-align: center; padding: 48px 20px; }
+.cover-math-bg {
+    font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-dim);
+    margin-bottom: 28px; line-height: 1.8; word-spacing: 8px; opacity: 0.5;
+}
+.cover-subtitle {
+    font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 3px;
+    color: var(--text-muted); margin-bottom: 12px;
+}
+.cover-title {
+    font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px;
+    background: linear-gradient(135deg, #ffffff, var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.cover-title .accent-text {
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.cover-desc { color: var(--text-muted) !important; font-size: 0.92rem !important; margin-bottom: 24px !important; }
+.cover-authors {
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 1px;
+    color: var(--accent-soft);
+}
+
+/* Unit badges */
+.unit-badge {
+    font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 3px;
+    color: var(--accent); margin-bottom: 6px; font-weight: 600;
+}
+.unit-header {
+    font-size: 1.4rem !important; font-weight: 700 !important;
+    margin-bottom: 24px !important;
+}
+
+/* Definition lists */
+.def-list { margin: 12px 0 18px; }
+.def-list dt {
+    font-weight: 600; color: #fff; font-size: 0.86rem;
+    margin-top: 12px; padding-left: 12px; position: relative;
+}
+.def-list dt::before {
+    content: ''; position: absolute; left: 0; top: 4px;
+    width: 3px; height: 14px; background: var(--accent);
+    border-radius: 2px;
+}
+.def-list dd {
+    font-size: 0.84rem; color: var(--text-main); line-height: 1.7;
+    margin: 4px 0 0 12px;
+}
+
+/* Theorem boxes */
+.theorem-box {
+    background: rgba(0, 212, 255, 0.04); border: 1px solid rgba(0, 212, 255, 0.1);
+    border-left: 3px solid var(--accent); border-radius: var(--radius-sm);
+    padding: 14px 18px; margin: 16px 0; font-size: 0.86rem; line-height: 1.7;
+}
+
+/* Algorithm boxes */
+.algo-box {
+    background: rgba(168, 85, 247, 0.04); border: 1px solid rgba(168, 85, 247, 0.1);
+    border-left: 3px solid var(--secondary); border-radius: var(--radius-sm);
+    padding: 14px 18px; margin: 12px 0; font-size: 0.84rem; line-height: 1.7;
+}
+.algo-box strong { color: var(--secondary); }
+.algo-box ol { padding-left: 18px; margin-top: 8px; }
+.algo-box li { margin-bottom: 4px; color: var(--text-main); }
+
+/* Example boxes */
+.example-box {
+    background: rgba(52, 211, 153, 0.04); border: 1px solid rgba(52, 211, 153, 0.08);
+    border-left: 3px solid #34d399; border-radius: var(--radius-sm);
+    padding: 14px 18px; margin: 12px 0; font-size: 0.84rem; line-height: 1.7;
+}
+
+/* Figure captions */
+.fig-caption {
+    font-family: var(--font-mono); font-size: 0.72rem !important;
+    color: var(--text-dim) !important; font-style: italic !important;
+    text-align: center; margin: 8px 0 16px !important;
+}
+
+/* TOC grid (in-book) */
+.toc-grid { display: flex; flex-direction: column; gap: 8px; }
+.toc-entry {
+    display: grid; grid-template-columns: 100px 1fr 30px;
+    gap: 12px; font-size: 0.84rem; padding: 8px 0;
+    border-bottom: 1px solid var(--border-color); align-items: baseline;
+}
+.toc-cat { font-family: var(--font-mono); font-size: 0.62rem; color: var(--text-dim); letter-spacing: 1px; }
+.toc-name { color: var(--text-main); }
+.toc-pg { font-family: var(--font-mono); color: var(--accent); text-align: right; font-size: 0.82rem; }
+
+/* Review list */
+.review-list { padding-left: 20px; }
+.review-list li {
+    font-size: 0.86rem; line-height: 1.7; color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* Unit start separator */
+.unit-start { border-top: 2px solid var(--accent); padding-top: 40px; }
 
 /* ==========================================================================
    FOOTER
